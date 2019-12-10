@@ -25,7 +25,7 @@
       >
         <v-rating
           :value="item.stars"
-          color="blue"
+          color= "#75c8ff"
           dense
           half-increments
           readonly
@@ -44,18 +44,18 @@
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>{{item.difficulty}}</v-card-title>
-
     <v-card-actions>
       <v-btn
-        color="deep-purple accent-4"
+        color="#75c8ff"
         text
         @click="reserve"
       >
-        Reserve
+        Get Directions
       </v-btn>
     </v-card-actions>
+    <v-card color= "#75c8ff">
+      <v-card-title class="font-weight-medium white--text">Difficulty: {{item.difficulty}}</v-card-title>
+    </v-card>
   </v-card>
   </v-row>
   </div>
@@ -88,7 +88,6 @@ export default {
   mounted () {
     axios.get('https://www.powderproject.com/data/get-trails?lat=39.8917&lon=-105.7631&maxDistance=200&key=200648940-e0f4d3e6dd5f91b90142df34f1899279')
       .then(response => {
-        console.log(response.data)
         this.info = response.data.trails
       })
   }
